@@ -17,7 +17,7 @@ homepage = "https://github.com/vpoulailleau/md-to-pdf"
 documentation = "https://github.com/vpoulailleau/md-to-pdf"
 keywords = ["Markdown", "PDF", "PDF generation", "PDF converter", "converter"]
 license = "BSD-3-Clause"
-include = ["md_to_pdf/**/*.py"]
+include = ["md_to_pdf/**/*.py", "md_to_pdf/**/*.css"]
 
 [tool.poetry.dependencies]
 python = "^3.7"

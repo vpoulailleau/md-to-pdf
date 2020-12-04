@@ -1,4 +1,5 @@
 import argparse
+import importlib.resources
 import pkg_resources
 import sys
 from pathlib import Path
@@ -38,12 +39,7 @@ def md_to_pdf(path_to_md: Union[str, Path]) -> None:
     font_config = FontConfiguration()
     pdf_writer = HTML(string=html)
     css = CSS(
-        string="""
-        @font-face {
-            font-family: Gentium;
-            src: url(http://example.com/fonts/Gentium.otf);
-        }
-        h1 { font-family: Gentium }""",
+        string=importlib.resources.read_text("md_to_pdf", "main.css"),
         font_config=font_config,
     )
     pdf_writer.write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
