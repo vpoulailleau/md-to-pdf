@@ -21,6 +21,9 @@ include = ["md_to_pdf/**/*.py"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+markdown2 = "^2.3"
+Pygments = "^2.7"
+WeasyPrint = "^52"
 
 [tool.poetry.dev-dependencies]
 python-dev-tools = {version = ">=2020.9.4", python = ">=3.7,<4.0"}
