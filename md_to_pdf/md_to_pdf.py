@@ -6,6 +6,8 @@ from typing import Union
 
 import markdown2
 import simplelogging
+from weasyprint import HTML, CSS
+from weasyprint.fonts import FontConfiguration
 
 log = None
 
@@ -30,6 +32,21 @@ def md_to_pdf(path_to_md: Union[str, Path]) -> None:
     html_path = path_to_md.parent / (path_to_md.stem + ".html")
     with open(html_path, "w", encoding="utf-8") as html_file:
         html_file.write(html)
+
+    log.info("Converting %s to PDF", str(path_to_md))
+    pdf_path = path_to_md.parent / (path_to_md.stem + ".pdf")
+    font_config = FontConfiguration()
+    pdf_writer = HTML(string=html)
+    css = CSS(
+        string="""
+        @font-face {
+            font-family: Gentium;
+            src: url(http://example.com/fonts/Gentium.otf);
+        }
+        h1 { font-family: Gentium }""",
+        font_config=font_config,
+    )
+    pdf_writer.write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
 
 
 def main():
