@@ -1,1 +1,943 @@
-h1, h2 {color:red !important}
+/*
+$base03:    #002b36;
+$base02:    #073642;
+$base01:    #586e75;
+$base00:    #657b83;
+$base0:     #839496;
+$base1:     #93a1a1;
+$base2:     #eee8d5;
+$base3:     #fdf6e3;
+$yellow:    #b58900;
+$orange:    #cb4b16;
+$red:       #dc322f;
+$magenta:   #d33682;
+$violet:    #6c71c4;
+$blue:      #268bd2;
+$cyan:      #2aa198;
+$green:     #859900;
+*/
+
+:root {
+  --base03: #002b36;
+  --base02: #073642;
+  --base01: #586e75;
+  --base00: #657b83;
+  --base0: #839496;
+  --base1: #93a1a1;
+  --base2: #eee8d5;
+  --base3: #fdf6e3;
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+body {
+  margin: 0;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+}
+pre {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+a {
+  background-color: transparent;
+}
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline;
+  text-decoration: underline dotted;
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+[hidden],
+template {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+pre {
+  overflow-x: auto;
+  overflow-y: hidden;
+  overflow: scroll;
+}
+pre code {
+  display: block;
+  padding: 1.5em;
+  font-size: 0.875rem;
+  line-height: 2;
+}
+pre,
+pre code {
+  white-space: pre;
+}
+pre {
+  color: #ddd;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  position: relative;
+}
+
+/* titles */
+@font-face {
+  font-family: "archistico";
+  src: url("/Archistico_Bold-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* normal */
+@font-face {
+  font-family: "Open Sans";
+  src: url("/OpenSans.woff2") format("woff2"),
+    url("/OpenSans.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* code */
+@font-face {
+  font-family: "Fira Mono";
+  src: url("/FiraMono-Regular.woff2") format("woff2"),
+    url("/FiraMono-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Open Sans", Arial, Helvetica, sans-serif;
+  font-size: 120%;
+  margin: auto !important;
+  padding: 0cm;
+  padding-top: 2.4em;
+  background-color: #fdf6e3;
+  color: #586e75 !important;
+  text-align: justify;
+  line-height: 1.15;
+
+  /* manage long words */
+  /* These are technically the same, but use both */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  hyphens: auto;
+}
+
+* {
+  box-sizing: border-box !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "archistico", "Times New Roman", Times, serif;
+  font-size: 130%;
+  margin-bottom: 1rem;
+  margin-top: 2rem;
+  page-break-after: avoid;
+  break-after: avoid;
+  border: none !important;
+  font-weight: normal !important;
+  text-align: left !important;
+  color: #6c71c4;
+}
+
+h1 {
+  margin-bottom: 3rem;
+  font-size: 250%;
+  text-align: center;
+  color: #cb4b16;
+}
+
+h2 {
+  margin-top: 4rem;
+  font-size: 175%;
+  color: #268bd2;
+}
+
+h3 {
+  margin-top: 4rem;
+  font-size: 160%;
+  color: #2aa198;
+}
+
+h4 {
+  font-weight: normal;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+  font-weight: normal;
+  text-decoration: none;
+}
+
+b,
+strong {
+  color: #cb4b16;
+  font-weight: bolder;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline #cb4b16;
+}
+
+svg,
+img {
+  margin: 0;
+  width: 100%;
+  height: auto;
+}
+
+p,
+li {
+  width: 100%;
+  line-height: 180%;
+  margin-bottom: 2rem;
+}
+
+li {
+  margin-bottom: 1rem;
+  padding-left: 1.2em;
+}
+
+ul,
+ol {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0.2em;
+  position: relative;
+}
+
+ul li {
+  margin-left: 1em;
+}
+
+ul li:before {
+  content: "➤";
+  color: #cb4b16;
+  position: absolute;
+  left: 0;
+}
+ul ul li:before {
+  color: #268bd2;
+}
+ul ul ul li:before {
+  color: #2aa198;
+}
+ul ul ul ul li:before {
+  color: #cb4b16;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+tbody {
+  width: 100%;
+}
+
+th {
+  color: #cb4b16;
+  border-bottom: 5px solid #cb4b16;
+}
+
+th,
+td {
+  padding: 1rem 0.5rem;
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px dotted #cb4b16;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1em 2em;
+  background-color: #eee8d5 !important;
+  border-left: 5px solid #cb4b16 !important;
+  quotes: "«" "»";
+}
+
+figure {
+  margin: 5rem 0;
+  text-align: center;
+  page-break-inside: avoid;
+}
+
+figcaption {
+  margin-top: 1rem;
+}
+
+hr {
+  padding: 0;
+  border: none;
+  border-top: medium double #073642;
+  margin: 5em 5em;
+}
+
+pre {
+  background-color: #073642 !important;
+  overflow: auto !important;
+  margin: 0;
+}
+
+code {
+  font-family: "Fira Mono", "Courier New", Courier, "Lucida Sans Typewriter",
+    "Lucida Typewriter", monospace !important;
+  color: #bbb !important;
+  padding: 0 0.1em;
+  display: inline-block;
+  page-break-inside: avoid;
+  break-inside: avoid;
+}
+
+/* inline code */
+code {
+  filter: brightness(70%);
+  background-color: #073642; /* fallback */
+  background-color: #07364208;
+}
+pre > code {
+  filter: initial;
+  background-color: initial;
+}
+
+/* code block */
+pre > code {
+  background-color: #073642;
+  padding: 0.5em 0.5em 0.5em 0.5em;
+  font-size: 0.875rem;
+  line-height: 2;
+}
+
+/* TODO */
+.highlight .hll {
+  background-color: #ffffcc;
+}
+.highlight {
+  background: #ffffff;
+}
+.highlight .c {
+  color: #008000;
+} /* Comment */
+.highlight .err {
+  border: 1px solid #ff0000;
+} /* Error */
+.highlight .k {
+  color: #0000ff;
+} /* Keyword */
+.highlight .ch {
+  color: #008000;
+} /* Comment.Hashbang */
+.highlight .cm {
+  color: #008000;
+} /* Comment.Multiline */
+.highlight .cp {
+  color: #0000ff;
+} /* Comment.Preproc */
+.highlight .cpf {
+  color: #008000;
+} /* Comment.PreprocFile */
+.highlight .c1 {
+  color: #008000;
+} /* Comment.Single */
+.highlight .cs {
+  color: #008000;
+} /* Comment.Special */
+.highlight .ge {
+  font-style: italic;
+} /* Generic.Emph */
+.highlight .gh {
+  font-weight: bold;
+} /* Generic.Heading */
+.highlight .gp {
+  font-weight: bold;
+} /* Generic.Prompt */
+.highlight .gs {
+  font-weight: bold;
+} /* Generic.Strong */
+.highlight .gu {
+  font-weight: bold;
+} /* Generic.Subheading */
+.highlight .kc {
+  color: #0000ff;
+} /* Keyword.Constant */
+.highlight .kd {
+  color: #0000ff;
+} /* Keyword.Declaration */
+.highlight .kn {
+  color: #0000ff;
+} /* Keyword.Namespace */
+.highlight .kp {
+  color: #0000ff;
+} /* Keyword.Pseudo */
+.highlight .kr {
+  color: #0000ff;
+} /* Keyword.Reserved */
+.highlight .kt {
+  color: #2b91af;
+} /* Keyword.Type */
+.highlight .s {
+  color: #a31515;
+} /* Literal.String */
+.highlight .nc {
+  color: #2b91af;
+} /* Name.Class */
+.highlight .ow {
+  color: #0000ff;
+} /* Operator.Word */
+.highlight .sa {
+  color: #a31515;
+} /* Literal.String.Affix */
+.highlight .sb {
+  color: #a31515;
+} /* Literal.String.Backtick */
+.highlight .sc {
+  color: #a31515;
+} /* Literal.String.Char */
+.highlight .dl {
+  color: #a31515;
+} /* Literal.String.Delimiter */
+.highlight .sd {
+  color: #a31515;
+} /* Literal.String.Doc */
+.highlight .s2 {
+  color: #a31515;
+} /* Literal.String.Double */
+.highlight .se {
+  color: #a31515;
+} /* Literal.String.Escape */
+.highlight .sh {
+  color: #a31515;
+} /* Literal.String.Heredoc */
+.highlight .si {
+  color: #a31515;
+} /* Literal.String.Interpol */
+.highlight .sx {
+  color: #a31515;
+} /* Literal.String.Other */
+.highlight .sr {
+  color: #a31515;
+} /* Literal.String.Regex */
+.highlight .s1 {
+  color: #a31515;
+} /* Literal.String.Single */
+.highlight .ss {
+  color: #a31515;
+} /* Literal.String.Symbol */
+
+footer {
+  background-color: #eee8d5;
+  width: 100%;
+}
+
+main,
+footer {
+  padding: 5%;
+}
+
+header {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+@media print {
+  @page {
+    size: A4 portrait;
+    background-color: #fdf6e3;
+  }
+
+  body {
+    padding: 0cm;
+    font-size: 100%;
+  }
+
+  a[href^="http"]:after {
+    content: " (" attr(href) ")";
+    font-size: 80%;
+  }
+
+  a[href^="#"]:after {
+    display: none;
+  }
+
+  a {
+    word-wrap: break-word;
+    color: #586e75;
+  }
+  table,
+  img,
+  svg,
+  blockquote {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+
+  @page :blank {
+    @top-center {
+      content: "Cette page est intentionnellement blanche.";
+    }
+  }
+
+  @page {
+    @bottom-left {
+      margin: 10pt 0 30pt 0;
+      content: "https://github.com/vpoulailleau/md-to-pdf";
+      font-size: 9pt;
+      color: #333;
+    }
+  }
+  @page {
+    @bottom-center {
+      margin: 10pt 0 30pt 0;
+      content: counter(page);
+      font-size: 9pt;
+      color: #333;
+    }
+  }
+}
+
+/***************** COLORATION SYNTAXIQUE **********************/
+/* Background */
+.highlight {
+  color: #93a1a1;
+  background-color: #002b36;
+}
+/* Other */
+.highlight .x {
+  color: #cb4b16;
+}
+/* Error */
+.highlight .err {
+}
+/* LineTableTD */
+.highlight .lntd {
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+/* LineTable */
+.highlight .lntable {
+  border-spacing: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  width: auto;
+  overflow: auto;
+  display: block;
+}
+/* LineHighlight */
+.highlight .hl {
+  display: block;
+  width: 100%;
+  background-color: #ffffcc;
+}
+/* LineNumbersTable */
+.highlight .lnt {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #93a1a1;
+}
+/* LineNumbers */
+.highlight .ln {
+  margin-right: 0.4em;
+  padding: 0 0.4em 0 0.4em;
+  color: #839496;
+}
+/* Keyword */
+.highlight .k {
+  color: #6c71c4;
+}
+/* KeywordConstant */
+.highlight .kc {
+  color: #cb4b16;
+}
+/* KeywordDeclaration */
+.highlight .kd {
+  color: #6c71c4;
+}
+/* KeywordNamespace */
+.highlight .kn {
+  color: #6c71c4;
+}
+/* KeywordPseudo */
+.highlight .kp {
+  color: #6c71c4;
+}
+/* KeywordReserved */
+.highlight .kr {
+  color: #6c71c4;
+}
+/* KeywordType */
+.highlight .kt {
+  color: #6c71c4;
+}
+/* Name */
+.highlight .n {
+}
+/* NameAttribute */
+.highlight .na {
+}
+/* NameBuiltin */
+.highlight .nb {
+  color: #268bd2;
+}
+/* NameBuiltinPseudo */
+.highlight .bp {
+  color: #cb4b16;
+}
+/* NameClass */
+.highlight .nc {
+  color: #b58900;
+}
+/* NameConstant */
+.highlight .no {
+  color: #cb4b16;
+}
+/* NameDecorator */
+.highlight .nd {
+  color: #268bd2;
+}
+/* NameEntity */
+.highlight .ni {
+  color: #cb4b16;
+}
+/* NameException */
+.highlight .ne {
+  color: #b58900;
+}
+/* NameFunction */
+.highlight .nf {
+  color: #268bd2;
+}
+/* NameFunctionMagic */
+.highlight .fm {
+}
+/* NameLabel */
+.highlight .nl {
+}
+/* NameNamespace */
+.highlight .nn {
+}
+/* NameOther */
+.highlight .nx {
+}
+/* NameProperty */
+.highlight .py {
+}
+/* NameTag */
+.highlight .nt {
+  color: #b58900;
+}
+/* NameVariable */
+.highlight .nv {
+  color: #268bd2;
+}
+/* NameVariableClass */
+.highlight .vc {
+}
+/* NameVariableGlobal */
+.highlight .vg {
+}
+/* NameVariableInstance */
+.highlight .vi {
+}
+/* NameVariableMagic */
+.highlight .vm {
+}
+/* Literal */
+.highlight .l {
+}
+/* LiteralDate */
+.highlight .ld {
+}
+/* LiteralString */
+.highlight .s {
+  color: #859900;
+}
+/* LiteralStringAffix */
+.highlight .sa {
+  color: #859900;
+}
+/* LiteralStringBacktick */
+.highlight .sb {
+  color: #859900;
+}
+/* LiteralStringChar */
+.highlight .sc {
+  color: #859900;
+}
+/* LiteralStringDelimiter */
+.highlight .dl {
+  color: #859900;
+}
+/* LiteralStringDoc */
+.highlight .sd {
+  color: #859900;
+}
+/* LiteralStringDouble */
+.highlight .s2 {
+  color: #859900;
+}
+/* LiteralStringEscape */
+.highlight .se {
+  color: #cb4b16;
+}
+/* LiteralStringHeredoc */
+.highlight .sh {
+}
+/* LiteralStringInterpol */
+.highlight .si {
+  color: #859900;
+}
+/* LiteralStringOther */
+.highlight .sx {
+  color: #859900;
+}
+/* LiteralStringRegex */
+.highlight .sr {
+  color: #859900;
+}
+/* LiteralStringSingle */
+.highlight .s1 {
+  color: #859900;
+}
+/* LiteralStringSymbol */
+.highlight .ss {
+  color: #859900;
+}
+/* LiteralNumber */
+.highlight .m {
+  color: #cb4b16;
+}
+/* LiteralNumberBin */
+.highlight .mb {
+  color: #cb4b16;
+}
+/* LiteralNumberFloat */
+.highlight .mf {
+  color: #cb4b16;
+}
+/* LiteralNumberHex */
+.highlight .mh {
+  color: #cb4b16;
+}
+/* LiteralNumberInteger */
+.highlight .mi {
+  color: #cb4b16;
+}
+/* LiteralNumberIntegerLong */
+.highlight .il {
+  color: #cb4b16;
+}
+/* LiteralNumberOct */
+.highlight .mo {
+  color: #cb4b16;
+}
+/* Operator */
+.highlight .o {
+  color: #2aa198;
+}
+/* OperatorWord */
+.highlight .ow {
+  color: #6c71c4;
+}
+/* Punctuation */
+.highlight .p {
+  color: #b58900;
+}
+/* Comment */
+.highlight .c {
+  color: #657b83;
+}
+/* CommentHashbang */
+.highlight .ch {
+  color: #657b83;
+}
+/* CommentMultiline */
+.highlight .cm {
+  color: #657b83;
+}
+/* CommentSingle */
+.highlight .c1 {
+  color: #657b83;
+}
+/* CommentSpecial */
+.highlight .cs {
+  color: #657b83;
+}
+/* CommentPreproc */
+.highlight .cp {
+  color: #657b83;
+}
+/* CommentPreprocFile */
+.highlight .cpf {
+  color: #657b83;
+}
+/* Generic */
+.highlight .g {
+}
+/* GenericDeleted */
+.highlight .gd {
+  color: #dc322f;
+}
+/* GenericEmph */
+.highlight .ge {
+  font-style: italic;
+}
+/* GenericError */
+.highlight .gr {
+  color: #dc322f;
+  font-weight: bold;
+}
+/* GenericHeading */
+.highlight .gh {
+  color: #cb4b16;
+}
+/* GenericInserted */
+.highlight .gi {
+  color: #719e07;
+}
+/* GenericOutput */
+.highlight .go {
+}
+/* GenericPrompt */
+.highlight .gp {
+}
+/* GenericStrong */
+.highlight .gs {
+  font-weight: bold;
+}
+/* GenericSubheading */
+.highlight .gu {
+  color: #268bd2;
+}
+/* GenericTraceback */
+.highlight .gt {
+}
+/* GenericUnderline */
+.highlight .gl {
+}
+/* TextWhitespace */
+.highlight .w {
+}
