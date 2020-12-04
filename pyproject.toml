@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "md-to-pdf"
+version = "0.1.0"
+description = "Yet another Markdown to PDF converter"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Operating System :: OS Independent"
+    # TODO: Add more
+]
+authors = ["Vincent Poulailleau <vpoulailleau@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/vpoulailleau/md-to-pdf"
+homepage = "https://github.com/vpoulailleau/md-to-pdf"
+documentation = "https://github.com/vpoulailleau/md-to-pdf"
+keywords = ["Markdown", "PDF", "PDF generation", "PDF converter", "converter"]
+license = "BSD-3-Clause"
+include = ["md_to_pdf/**/*.py"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+python-dev-tools = {version = ">=2020.9.4", python = ">=3.7,<4.0"}
+
+#[tool.poetry.scripts]
+#padpo = "padpo.padpo:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
