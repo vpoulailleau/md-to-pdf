@@ -146,11 +146,6 @@ img {
   max-width: 100%;
 }
 
-pre {
-  overflow-x: auto;
-  overflow-y: hidden;
-  overflow: scroll;
-}
 pre code {
   display: block;
   padding: 1.5em;
@@ -173,9 +168,6 @@ pre {
 @font-face {
   font-family: "archistico";
   src: url("/Archistico_Bold-webfont.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* normal */
@@ -183,9 +175,6 @@ pre {
   font-family: "Open Sans";
   src: url("/OpenSans.woff2") format("woff2"),
     url("/OpenSans.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }
 
 /* code */
@@ -193,9 +182,6 @@ pre {
   font-family: "Fira Mono";
   src: url("/FiraMono-Regular.woff2") format("woff2"),
     url("/FiraMono-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
 }
 
 body {
@@ -213,8 +199,6 @@ body {
   /* These are technically the same, but use both */
   overflow-wrap: break-word;
   word-wrap: break-word;
-  -ms-word-break: break-all;
-  word-break: break-all;
   hyphens: auto;
 }
 
@@ -599,19 +583,32 @@ header {
   }
 
   @page {
+    @top-left {
+      /* title */
+      font-family: "archistico", "Times New Roman", Times, serif;
+      margin: 40pt 0 20pt 0;
+      content: "";
+      font-size: 9pt;
+      color: #999;
+      font-variant: small-caps;
+      font-variant-caps: small-caps;
+    }
+
     @bottom-left {
-      margin: 10pt 0 30pt 0;
+      /* author */
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
+      margin: 20pt 0 40pt 0;
       content: "https://github.com/vpoulailleau/md-to-pdf";
       font-size: 9pt;
-      color: #333;
+      color: #999;
     }
-  }
-  @page {
+
     @bottom-center {
+      font-family: "Open Sans", Arial, Helvetica, sans-serif;
       margin: 10pt 0 30pt 0;
       content: counter(page);
       font-size: 9pt;
-      color: #333;
+      color: #999;
     }
   }
 }

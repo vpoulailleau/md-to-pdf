@@ -45,6 +45,9 @@ def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str) -> None:
     css_custom = CSS(
         string=f"""
           @page {{
+            @top-left {{
+              content: "{title}";
+            }}
             @bottom-left {{
               content: "{author}";
             }}
