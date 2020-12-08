@@ -42,10 +42,13 @@ def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str, size: str) 
         string=importlib.resources.read_text("md_to_pdf", "main.css"),
         font_config=font_config,
     )
+    css_size = CSS(
+        string=importlib.resources.read_text("md_to_pdf", f"{size}.css"),
+        font_config=font_config,
+    )
     css_custom = CSS(
         string=f"""
           @page {{
-            size: {size} portrait;
             @top-left {{
               content: "{title}";
             }}
@@ -57,7 +60,7 @@ def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str, size: str) 
         font_config=font_config,
     )
     pdf_writer.write_pdf(
-        pdf_path, stylesheets=[css, css_custom], font_config=font_config
+        pdf_path, stylesheets=[css, css_size, css_custom], font_config=font_config
     )
 
 
