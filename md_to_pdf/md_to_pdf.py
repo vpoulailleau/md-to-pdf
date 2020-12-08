@@ -13,7 +13,7 @@ from weasyprint.fonts import FontConfiguration
 log = None
 
 
-def md_to_pdf(path_to_md: Union[str, Path]) -> None:
+def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str) -> None:
     path_to_md = Path(str(path_to_md))
     log.info("Converting %s to HTML", str(path_to_md))
     html = markdown2.markdown_path(
@@ -42,7 +42,19 @@ def md_to_pdf(path_to_md: Union[str, Path]) -> None:
         string=importlib.resources.read_text("md_to_pdf", "main.css"),
         font_config=font_config,
     )
-    pdf_writer.write_pdf(pdf_path, stylesheets=[css], font_config=font_config)
+    css_custom = CSS(
+        string=f"""
+          @page {{
+            @bottom-left {{
+              content: "{author}";
+            }}
+          }}
+        """,
+        font_config=font_config,
+    )
+    pdf_writer.write_pdf(
+        pdf_path, stylesheets=[css, css_custom], font_config=font_config
+    )
 
 
 def main():
@@ -50,7 +62,11 @@ def main():
     global log
 
     parser = argparse.ArgumentParser(description="Markdown to PDF converter")
-    parser.add_argument("-v", "--verbose", action="count", default=0)
+    parser.add_argument(
+        "-v", "--verbose", action="count", default=0, help="increase verbosity level"
+    )
+    parser.add_argument("-t", "--title", help="title of the document", default="")
+    parser.add_argument("-a", "--author", help="author of the document", default="")
     files = parser.add_mutually_exclusive_group(required=True)
     files.add_argument(
         "-i",
@@ -68,7 +84,7 @@ def main():
     args = parser.parse_args()
 
     if args.version:
-        print(pkg_resources.get_distribution("padpo").version)
+        print(pkg_resources.get_distribution("md_to_pdf").version)
         sys.exit(0)
 
     log = simplelogging.get_logger("__main__")
@@ -81,7 +97,7 @@ def main():
         log.full_logging()
 
     for md_path in args.input_path:
-        md_to_pdf(md_path)
+        md_to_pdf(md_path, author=args.author, title=args.title)
 
 
 if __name__ == "__main__":
