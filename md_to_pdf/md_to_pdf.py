@@ -13,7 +13,7 @@ from weasyprint.fonts import FontConfiguration
 log = None
 
 
-def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str) -> None:
+def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str, size: str) -> None:
     path_to_md = Path(str(path_to_md))
     log.info("Converting %s to HTML", str(path_to_md))
     html = markdown2.markdown_path(
@@ -45,6 +45,7 @@ def md_to_pdf(path_to_md: Union[str, Path], author: str, title: str) -> None:
     css_custom = CSS(
         string=f"""
           @page {{
+            size: {size} portrait;
             @top-left {{
               content: "{title}";
             }}
@@ -70,20 +71,27 @@ def main():
     )
     parser.add_argument("-t", "--title", help="title of the document", default="")
     parser.add_argument("-a", "--author", help="author of the document", default="")
+    parser.add_argument(
+        "-s",
+        "--size",
+        help="size of the document",
+        default="A4",
+        choices=["A4", "A5"],
+    )
     files = parser.add_mutually_exclusive_group(required=True)
     files.add_argument(
         "-i",
         "--input-path",
         metavar="PATH",
         type=str,
-        help="path of the file or directory to check",
+        help="path of the markdown files to convert",
         default=[],
         # allow the user to provide no path at all,
         # this helps writing scripts
-        nargs="*",
+        nargs="+",
     )
     # TODO file on the web, with requests
-    files.add_argument("--version", action="store_true", help="Return version")
+    files.add_argument("--version", action="store_true", help="return version")
     args = parser.parse_args()
 
     if args.version:
@@ -100,7 +108,7 @@ def main():
         log.full_logging()
 
     for md_path in args.input_path:
-        md_to_pdf(md_path, author=args.author, title=args.title)
+        md_to_pdf(md_path, author=args.author, title=args.title, size=args.size)
 
 
 if __name__ == "__main__":
